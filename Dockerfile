@@ -8,7 +8,13 @@ RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/so
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 
 RUN apt-get update -qqy \
-	&& apt-get -qqy install google-chrome-stable
+	&& apt-get -qqy install google-chrome-stable python-dev
+	
+RUN curl -O https://bootstrap.pypa.io/get-pip.py
+
+RUN python get-pip.py
+
+RUN pip install awscli
 
 # Log versions
 
