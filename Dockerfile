@@ -1,4 +1,4 @@
-FROM node:10.15
+FROM node:latest
 LABEL name="node-chrome"
 
 # Install Chrome
@@ -20,6 +20,8 @@ RUN chmod 755 /usr/bin/google-chrome
 RUN python get-pip.py
 
 RUN pip install awscli
+
+RUN pip install boto3
 
 # Log versions
 
